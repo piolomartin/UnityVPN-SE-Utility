@@ -25,7 +25,7 @@ if(!$s) throw new Exception('Error on locking file.');
 $s=ftruncate($fp, 0);
 if(!$s) throw new Exception('Error on truncating file.');
 
-fwrite($fp, time()."\n");
+fwrite($fp, time()."\n".sizeof($sessions)."\n");
 
 foreach($sessions as $session){
 	$sessionName = $session->Name;
